@@ -66,10 +66,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         message = data_json.get('message')
         action = data_json.get('action')
 
-        if action == 'call':
-            channel_name, res_data = await self.call(message)
-            await channel_layer.send(channel_name, res_data)
-            return
+        # if action == 'call':
+        #     channel_name, res_data = await self.call(message)
+        #     await channel_layer.send(channel_name, res_data)
+        #     return
 
         data_json['channel'] = self.channel_name
         await self.channel_layer.group_send(
@@ -82,7 +82,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def send_sdp(self, event):
         receive = event['data']
-        print(receive)
         await self.send(text_data=json.dumps(receive))
 
     async def call_message(self, event):
