@@ -21,7 +21,6 @@ __pycache__/
 !*media/.gitkeep
 media/*
 
-static/*
 
 log/debug.log
 

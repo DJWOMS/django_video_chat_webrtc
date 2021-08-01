@@ -1,4 +1,4 @@
-#Django video chat
+# Django video chat
 
 <a href="https://www.youtube.com/c/DjangoSchool">
   <img align="left" alt="YouTube" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" />
