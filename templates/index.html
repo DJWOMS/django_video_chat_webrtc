@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Room</title>
+  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<h1>Video chat Django</h1>
+<h3 id="newUser"></h3>
+<input type="text" id="username"/>
+<button id="connectButton">Connect</button>
+
+<button id="btnCreateChat" style="display: none">Create chat</button>
+
+
+<p>
+  <video autoplay="true" width="200" id="myVideo"></video>
+  <button id="getMedia">Turn on camera</button>
+</p>
+
+<div>
+  <input type="text" id="calleeName"/>
+  <button id="callButton">Call</button>
+</div>
+<p>
+<!--<button id="createOffer">Create offer</button>-->
+</p>
+<div id="acceptDiv" style="display: none">
+    Reciever login:<input type="text" id="callerName" />
+    <video autoplay="true" width="200" id="callVideo"></video>
+    <button id="acceptButton">Accept</button>
+    <button id="declineButton">Decline</button>
+</div>
+<script src="{% static 'testRTS.js' %}"></script>
+</body>
+
+</html>

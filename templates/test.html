@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <title>Django WebRTC</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Django video chat</h1>
+
+  <!--WebRTC related code-->
+  <input type="text" id="username" class="form-control" placeholder="Your name"/>
+  <button id="connectButton" type="button" class="btn btn-primary" onclick='connect()'>
+    Connect
+  </button>
+  <button id="btnCreateChat" type="button" class="btn btn-primary" onclick='createOffer()'>
+    Create chat
+  </button>
+
+  <div id="div_message">
+    <textarea class="form-control" id="chat-log" cols="100" rows="10"></textarea>
+    <input id="messageInput" type="text" class="form-control" placeholder="message">
+    <button type="button" class="btn btn-primary" onclick='sendMessage()'>SEND</button>
+  </div>
+
+  <div class="raw">
+    <div class="col-lg-6">
+      <p>You: </p>
+      <video autoplay="true" width="200" id="myVideo"></video>
+    </div>
+    <div class="col-lg-6">
+      <div id="acceptDiv">
+        <p>Caller: </p>
+        <video autoplay="true" width="200" id="callVideo"></video>
+        {#    <button id="acceptButton">Accept</button>#}
+        {#    <button id="declineButton">Decline</button>#}
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <button type="button" class="btn btn-success" id="getMedia">Turn on camera</button>
+    </div>
+  </div>
+  <script src="{% static 'client_rtc.js' %}"></script>
+
+</div>
+<div class="footer">Django School 2021</div>
+
+</body>
+
+</html>
