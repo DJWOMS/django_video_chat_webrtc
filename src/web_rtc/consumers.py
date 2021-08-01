@@ -31,8 +31,9 @@ class ConnectConsumer(WebsocketConsumer):
         pass
 
     def receive(self, text_data):
-        text_data_json = json.loads(text_data)
-        data = text_data_json['data']
+        # text_data_json = json.loads(text_data)
+        # data = text_data_json['data']
+        pass
 
     def chat_message(self, event):
         self.send(text_data=json.dumps(event))
@@ -63,9 +64,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         data_json = json.loads(text_data)
         print("#######", data_json)
-        message = data_json.get('message')
-        action = data_json.get('action')
-
+        # message = data_json.get('message')
+        # action = data_json.get('action')
+        #
         # if action == 'call':
         #     channel_name, res_data = await self.call(message)
         #     await channel_layer.send(channel_name, res_data)
