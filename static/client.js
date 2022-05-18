@@ -31,17 +31,21 @@ const offerOptions = {
 };
 
 const config = {
-  iceServers: [
-    {
-      "urls": "stun:stun.l.google.com:19302",
-    },
-  ]
+    iceServers: [
+        {urls: 'stun:178.250.157.153:3478'},
+        {
+            urls: "turn:178.250.157.153:3478",
+            username: "test",
+            credential: "test123"
+        }
+    ],
+    // iceTransportPolicy: "all"
 };
 
 let localStream = new MediaStream()
 
 const constraints = window.constraints = {
-    audio: true,
+    audio: false,
     video: true
 };
 
@@ -224,7 +228,7 @@ function message(e) {
 
         let peer = mapPeers[data['receive_data']['peer']][0]
         peer.setRemoteDescription(data['receive_data']['message']['sdp'])
-        
+
     }
 }
 

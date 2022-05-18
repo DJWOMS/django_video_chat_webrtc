@@ -19,10 +19,14 @@ let localStream = new MediaStream()
 
 let config = {
     iceServers: [
+        {urls: 'stun:178.250.157.153:3478'},
         {
-            "urls": "stun:stun.l.google.com:19302",
+            urls: "turn:178.250.157.153:3478",
+            username: "test",
+            credential: "test123"
         }
-    ]
+    ],
+    // iceTransportPolicy: "all"
 };
 
 
@@ -233,7 +237,7 @@ function my_stream(e) {
 
             let audioTrack = stream.getAudioTracks()
             let videoTrack = stream.getVideoTracks()
-            audioTrack[0].enabled = true
+            // audioTrack[0].enabled = false
             videoTrack[0].enabled = true
 
             console.log('stream', stream)
